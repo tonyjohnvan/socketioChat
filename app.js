@@ -49,6 +49,12 @@ io.on('connection', function (socket) {
       // tell all that the users list is been changed
       io.emit('userListChange', allUsers)
     })
+    .on('someoneTyping', function (msg) {
+      io.emit('someoneTypingBC', msg)
+    })
+    .on('someoneFinishedTyping', function (msg) {
+      io.emit('someoneFinishedTypingBC', msg)
+    })
 })
 
 

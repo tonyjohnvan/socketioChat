@@ -70,7 +70,7 @@ body{
     top: calc(50% - 200px);
     left: calc(50% - 300px);
     border-radius: 8px;
-    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.15);
+    box-shadow: 1px 1px 800px 600px rgba(0,0,0,0.25);
 }
 
 .msgInputWrap{
@@ -99,3 +99,9 @@ body{
     height: 100%;
     list-style: none;
 }
+#infoSec{
+    color: white;
+    padding-bottom: 5px;
+    font-style: italic;
+}
+

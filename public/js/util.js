@@ -7,3 +7,11 @@ function updateUserList(list){
     $('#userList').append('<li>'+list[i].name+'</li>')
   }
 }
+
+function updateInfoSec(msg) {
+  $('#infoSec').html('').append(msg)
+}
+
+function clearInfoSec(msg) {
+  $('#infoSec').html('')
+}

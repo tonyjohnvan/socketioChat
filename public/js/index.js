@@ -24,6 +24,15 @@ $('#nickNameInputWrap').submit(function () {
   return false
 })
 
+$('#m').on('keypress',function (e) {
+  // anything happening in this place notifying others that someone is typing
+  if(e.keyCode==13){
+    socket.emit('someoneFinishedTyping',{});
+  } else{
+    socket.emit('someoneTyping', (nickName?nickName:'Joe') + ' is typing...');
+  }
+})
+
 socket.on('chatmsgBC', function (msg) {
   $('#messages').append('<li>'+ msg.name + ': ' + msg.text +'</li>')
 })
@@ -35,4 +44,10 @@ socket.on('chatmsgBC', function (msg) {
   })
   .on('userListChange', function (msg) {
     updateUserList(msg)
+  })
+  .on('someoneTypingBC', function (msg) {
+    updateInfoSec(msg)
+  })
+  .on('someoneFinishedTypingBC', function (msg) {
+    clearInfoSec(msg)
   })
