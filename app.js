@@ -10,7 +10,7 @@ var io = require('socket.io')(http)
 app.use('/', express.static(__dirname + '/public'));
 
 var allUsers = []
-var ausername
+var ausername = 'Anonymous'
 io.on('connection', function (socket) {
 
   // server level knows a user is been connected (for using socketIO)
@@ -18,7 +18,7 @@ io.on('connection', function (socket) {
 
   socket.on('disconnect', function () {
     // tell others a user is been disconnected
-    console.log(ausername, ' is disconnected')
+    console.log(ausername, 'is disconnected')
     io.emit('userDisconnection', ausername + ' is disconnected')
   })
     .on('chatmsg',function (msg) {

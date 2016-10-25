@@ -1,0 +1,100 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+}
+
+/*body {*/
+    /*font: 13px Helvetica, Arial;*/
+/*}*/
+
+/*form {*/
+    /*background: #000;*/
+    /*padding: 3px;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+/*}*/
+
+/*form input {*/
+    /*border: 0;*/
+    /*padding: 10px;*/
+    /*width: 90%;*/
+    /*margin-right: .5%;*/
+/*}*/
+
+/*form button {*/
+    /*width: 9%;*/
+    /*background: rgb(130, 224, 255);*/
+    /*border: none;*/
+    /*padding: 10px;*/
+/*}*/
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#messages li {
+    padding: 5px 10px;
+}
+
+#messages li:nth-child(odd) {
+    /*background: #eee;*/
+}
+
+#messages li.info {
+    background: rgba(208, 238, 228, 0.50) !important;
+    color: grey
+}
+
+#messagesInputWrap {
+    display: none
+}
+
+#nickNameInputWrap {
+    position: relative;
+    margin: 100px auto ;
+    width: 50%
+}
+
+.float{
+    position: absolute;
+    min-width: 600px;
+    min-height:400px;
+    top: calc(50% - 200px);
+    left: calc(50% - 300px);
+    border-radius: 8px;
+    box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.15);
+}
+
+.msgInputWrap{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: lightslategray;
+    padding: 10px;
+}
+
+#m{
+    width: 100%;
+}
+.pageContainer{
+    margin-bottom: 50px;
+    background: white;
+}
+
+.msgWrap{
+    padding: 0;
+}
+
+.userListWrap{
+    padding: 0;
+    background: #eee;
+    height: 100%;
+}

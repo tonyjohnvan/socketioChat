@@ -2,22 +2,49 @@
 <html>
 <head>
   <title>Socket.IO chat</title>
-  <link rel="stylesheet" href="index.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-<ul id="messages"></ul>
+
+<div class="pageContainer">
+  <div class="row">
+    <div class="col-xs-10 msgWrap">
+      <ul id="messages"></ul>
+    </div>
+    <div class="col-xs-2 userListWrap">
+      <ul id="userList"></ul>
+    </div>
+  </div>
+</div>
+
+
 <!--nick name input wrapper-->
-<form action="" id="nickNameInputWrap">
-    <input id="nick" autocomplete="off" placeholder="Joe"/><button>Here is me</button>
-</form>
+<div class="jumbotron float" id="nickNameInputWrapBig">
+  <form action="" id="nickNameInputWrap">
+    <div class="form-group">
+      <label for="nick">Your Nick Name</label>
+      <input id="nick" class="form-control" autocomplete="off" placeholder="Joe"/>
+    </div>
+    <button class="btn btn-primary btn-lg">Here is me</button>
+  </form>
+</div>
 
 <!--message input wrapper-->
-<form action="" id="messagesInputWrap">
-    <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+<div class="msgInputWrap">
+  <form action="" id="messagesInputWrap" class="form-inline row">
+    <div class="form-group col-sm-11">
+      <input id="m" class="form-control" autocomplete="off" placeholder="say something" />
+    </div>
+    <div class="col-sm-1">
+      <button type="submit" class="btn btn-default">Send</button>
+    </div>
+  </form>
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="index.js"></script>
+<script src="js/jquery1.11.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
