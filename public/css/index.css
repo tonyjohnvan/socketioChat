@@ -90,11 +90,12 @@ body{
 }
 
 .msgWrap{
-    padding: 0;
+    padding-right: 0;
 }
 
 .userListWrap{
-    padding: 0;
+    padding-left: 10px;
     background: #eee;
     height: 100%;
+    list-style: none;
 }

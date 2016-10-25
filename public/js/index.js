@@ -34,5 +34,5 @@ socket.on('chatmsgBC', function (msg) {
     $('#messages').append('<li class="info">'+ msg +'</li>')
   })
   .on('userListChange', function (msg) {
-
+    updateUserList(msg)
   })
