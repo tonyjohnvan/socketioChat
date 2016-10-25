@@ -11,15 +11,18 @@ app.get('/', function (req, res) {
 })
 
 io.on('connection', function (socket) {
-  io.emit('userConnection', 'a user is connected')
+  // io.emit('userConnection', 'a user is connected')
+  console.log('a user is connected')
   socket.on('disconnect', function () {
     io.emit('userDisconnection', 'a user is disconnected')
   })
     .on('chatmsg',function (msg) {
       // console.log('message: ', msg)
-      io.emit('chatmsg', msg)
+      io.emit('chatmsgBC', msg)
     })
-    // .broadcast.emit('Aloha!')
+    .on('clientConnect',function (msg) {
+      io.emit('userConnection', msg + ' is connected')
+    })
 })
 
 

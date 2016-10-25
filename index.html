@@ -12,25 +12,42 @@
     #messages li { padding: 5px 10px; }
     #messages li:nth-child(odd) { background: #eee; }
     #messages li.info{ background: rgba(208, 238, 228, 0.50) !important; color: grey}
+    #messagesInputWrap{ display: none}
+    #nickNameInputWrap{ position: relative; margin: calc(25% - 15px) auto 0; width: 50%}
   </style>
 </head>
 <body>
 <ul id="messages"></ul>
-<form action="">
-  <input id="m" autocomplete="off" /><button>Send</button>
+<form action="" id="nickNameInputWrap">
+    <input id="nick" autocomplete="off" /><button>Here is me</button>
 </form>
-
+<form action="" id="messagesInputWrap">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
   var socket = io();
-  $('form').submit(function () {
-    socket.emit('chatmsg', $('#m').val());
+  var nickName = "Joe Done";
+  $('#messagesInputWrap').submit(function () {
+    socket.emit('chatmsg', {
+      name:nickName,
+      text:$('#m').val()
+    });
     $('#m').val('')
     return false
   })
-  socket.on('chatmsg', function (msg) {
-    $('#messages').append('<li>'+ msg +'</li>')
+  $('#nickNameInputWrap').submit(function () {
+    nickName = $('#nick').val();
+
+    socket.emit('clientConnect', $('#nick').val());
+
+    $('#nickNameInputWrap').hide()
+    $('#messagesInputWrap').show()
+    return false
+  })
+  socket.on('chatmsgBC', function (msg) {
+    $('#messages').append('<li>'+ msg.name + ': ' + msg.text +'</li>')
   })
     .on('userConnection',function (msg) {
       $('#messages').append('<li class="info">'+ msg +'</li>')
