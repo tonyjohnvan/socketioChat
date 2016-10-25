@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>Socket.IO chat</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<ul id="messages"></ul>
+<!--nick name input wrapper-->
+<form action="" id="nickNameInputWrap">
+    <input id="nick" autocomplete="off" placeholder="Joe"/><button>Here is me</button>
+</form>
+
+<!--message input wrapper-->
+<form action="" id="messagesInputWrap">
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
