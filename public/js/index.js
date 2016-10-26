@@ -24,12 +24,12 @@ $('#nickNameInputWrap').submit(function () {
   return false
 })
 
-$('#m').on('keypress',function (e) {
+$('#m').on('keyup',function (e) {
   // anything happening in this place notifying others that someone is typing
   if(e.keyCode==13){
     socket.emit('someoneFinishedTyping',{});
   } else{
-    socket.emit('someoneTyping', (nickName?nickName:'Joe') + ' is typing...');
+    socket.emit('someoneTyping', (nickName?nickName:'Joe') + ' is typing: '+ $('#m').val());
   }
 })
 
